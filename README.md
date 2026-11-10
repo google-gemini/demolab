@@ -92,6 +92,10 @@ Looking for skills covering the Gemini API, Live API, and official SDKs? Check
 out [google-gemini/gemini-skills](https://github.com/google-gemini/gemini-skills)
 and the [coding agents setup guide](https://aistudio.google.com/docs/coding-agents.md).
 
+## License
+
+This repository is licensed under the [Apache 2.0 License](LICENSE).
+
 ## Disclaimer
 
 This is not an officially supported Google product. This project is not
