@@ -1,44 +1,96 @@
 # Gemini DemoLab
 
-Skills, prompts, and scripts used to build and reproduce Gemini model demos.
+A library of creative, frontend, and experimental agent skills from the Gemini team.
+
+## About
+
+[Skills](https://agentskills.io/) are a lightweight, open technique for giving
+your coding agent reusable craft, design direction, and workflow guidance right
+when a task needs them - without bloating every prompt.
+
+This repository hosts skills built and tested by the Gemini team for designing
+and building standout apps, web interfaces, and interactive demos.
+
+## Skills in this repo
+
+| Skill | Description |
+| :--- | :--- |
+| [`gemini-frontend-design`](skills/gemini-frontend-design) | Design and build polished websites and web apps tailored to the brief. Covers opening screen format, layout, color, typography, custom imagery, copy, and motion when creating or redesigning web interfaces. |
+
+### Performance
+
+- **`gemini-frontend-design`**: Every model has its own unique design quirks;
+  this skill has been drafted to get the best out of Gemini 4 models for
+  frontend design. Our evaluations found that users prefer frontend designs
+  generated with this skill over frontend designs with no skills 67% of the
+  time, and 75% of the time against popular third-party frontend design skills.
 
 ## Installation
 
-You can browse and install skills from this repository across your preferred coding agents (**Gemini CLI**, **Antigravity**, **Claude Code**, **Cursor**, **Codex**, **OpenCode**, and more) using the [skills CLI](https://github.com/vercel-labs/skills):
+You can install individual skills or the full DemoLab plugin across your
+preferred AI coding assistants and package managers:
 
-```bash
+### Using [Vercel skills CLI](https://skills.sh)
+
+```sh
+# Install a specific skill (recommended)
+npx skills add google-gemini/demolab --skill gemini-frontend-design
+
 # Interactively browse and install skills
-npx skills add google-gemini/demolab
-
-# List all available skills in this repository
 npx skills add google-gemini/demolab --list
-
-# Install a specific skill
-npx skills add google-gemini/demolab --skill <skill-name>
-
-# Install a specific skill for a specific agent (e.g., antigravity, gemini-cli, claude-code, cursor)
-npx skills add google-gemini/demolab --skill <skill-name> -a antigravity
-
-# Use a skill directly without installing
-npx skills use google-gemini/demolab@<skill-name>
 ```
 
-## Repository Structure
+### Using [Context7 skills CLI](https://context7.com)
 
-Skills live under [`skills/`](skills/) so they are automatically discovered by `npx skills`:
+```sh
+# Install a specific skill (recommended)
+npx ctx7 skills install /google-gemini/demolab gemini-frontend-design
+
+# Interactively browse and install skills
+npx ctx7 skills install /google-gemini/demolab
+```
+
+### Antigravity
+
+Install through the AGY CLI:
+
+```sh
+agy plugin install https://github.com/google-gemini/demolab
+```
+
+### Claude Code
+
+```sh
+# Register the marketplace
+/plugin marketplace add google-gemini/demolab
+
+# Install the plugin
+/plugin install demolab@demolab
+```
+
+### Cursor
+
+Install via the editor command:
 
 ```text
-skills/
-  └── <skill-name>/
-      ├── SKILL.md      # Required: YAML frontmatter (name, description) + agent instructions
-      ├── README.md     # Optional: Link to demo/post, exact prompt used, and steps to reproduce
-      ├── references/   # Optional: Reference docs, schemas, or prompt assets
-      └── scripts/      # Optional: Helper scripts or standalone demo code
+/add-plugin google-gemini/demolab
 ```
 
-## Contributing
+### OpenAI Codex
 
-All additions and changes must be submitted via Pull Request and receive peer review before merging. See [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines and the required submission checklist.
+```sh
+# Add the marketplace source
+codex plugin marketplace add https://github.com/google-gemini/demolab
+
+# Install the plugin
+codex plugin add demolab@demolab
+```
+
+## More info
+
+Looking for skills covering the Gemini API, Live API, and official SDKs? Check
+out [google-gemini/gemini-skills](https://github.com/google-gemini/gemini-skills)
+and the [coding agents setup guide](https://aistudio.google.com/docs/coding-agents.md).
 
 ## License
 
@@ -46,4 +98,6 @@ This repository is licensed under the [Apache 2.0 License](LICENSE).
 
 ## Disclaimer
 
-This is not an officially supported Google product. This project is not eligible for the [Google Open Source Software Vulnerability Rewards Program](https://bughunters.google.com/open-source-security).
+This is not an officially supported Google product. This project is not
+eligible for the [Google Open Source Software Vulnerability Rewards
+Program](https://bughunters.google.com/open-source-security).
