@@ -77,7 +77,15 @@ finishing.
         above smaller paragraphs, or shrink body bullet lists down to caption
         size. Use **sentence case** for UI labels and table headers (avoid
         tracked-out `ALL CAPS` micro-labels), keep body prose `<= 65ch`, and
-        tighten display tracking (`-0.02em` to `-0.05em`).
+        tighten display tracking (`-0.02em` to `-0.05em`) on Latin/non-cursive
+        scripts while keeping `letter-spacing: normal` on cursive scripts such
+        as Arabic where non-zero tracking breaks contextual glyph shaping.
+    -   **RTL & multilingual layout discipline**: On right-to-left (`dir="rtl"`)
+        or bilingual interfaces, use CSS logical properties (`margin-inline`,
+        `padding-inline`, `inset-inline`, `border-inline-start`,
+        `text-align: start`) instead of physical `left`/`right` properties, and
+        isolate embedded LTR tokens, URLs, and signed numbers inside `<bdi>` or
+        `dir="ltr"` with `unicode-bidi: isolate`.
 
 ## 2. Match the Opening Screen to the Format (Bold Hero When Earned)
 
@@ -99,11 +107,13 @@ finishing.
     center, or depth of the viewport**.
 -   **Keep hero copy razor-sharp so scale can lead**: On hero-led pages, let
     oversized display type (`clamp(3.5rem, 7.5vw, 8rem)` with tight `0.9-1.0`
-    line-height when word count allows) or full-bleed imagery do the heavy
-    lifting. Pair the `<h1>` with **at most 1-2 short lines of supporting copy
-    (`<= 25` words)** and one clear primary action (or an immediate interactive
-    canvas) - **never** append a `3-4` item KPI/spec footer strip or horizontal
-    divider row to the bottom of the hero.
+    line-height on Latin headings when word count allows, or `1.2-1.35` on
+    Arabic, Indic, and CJK scripts to prevent ascender, diacritic, and
+    descender clipping) or full-bleed imagery do the heavy lifting. Pair the
+    `<h1>` with **at most 1-2 short lines of supporting copy (`<= 25` words)**
+    and one clear primary action (or an immediate interactive canvas) -
+    **never** append a `3-4` item KPI/spec footer strip or horizontal divider
+    row to the bottom of the hero.
 -   **Sample hero spatial directions (adapt, combine, or invent freely - never
     assign mechanically by business type)**:
     -   *Centered monumental headline + wide interactive stage*: A wide centered
@@ -129,7 +139,9 @@ finishing.
         headline tension across open space.
 -   **Expressive / kinetic hero typography**: Where it elevates a hero, use
     purposeful typographic motion - staggered line/word entrance, curved
-    `<svg><textPath>` ribbons, subtle variable-weight or tracking response, or
+    `<svg><textPath>` ribbons or subtle tracking response on non-cursive
+    scripts (animate whole words or lines rather than per-character splits,
+    `<textPath>`, or tracking on cursive/RTL scripts), or variable-weight and
     inline animated tokens - making sure the headline renders **visibly and
     legibly at rest** (never stuck at `opacity: 0`) and honors
     `prefers-reduced-motion`.
