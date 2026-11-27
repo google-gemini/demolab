@@ -85,7 +85,7 @@ finishing.
         `padding-inline`, `inset-inline`, `border-inline-start`,
         `text-align: start`) instead of physical `left`/`right` properties, and
         isolate embedded LTR tokens, URLs, and signed numbers inside `<bdi>` or
-        `dir="ltr"` with `unicode-bidi: isolate`.
+        elements with `dir="ltr"` (or via `unicode-bidi: isolate`).
 
 ## 2. Match the Opening Screen to the Format (Bold Hero When Earned)
 
